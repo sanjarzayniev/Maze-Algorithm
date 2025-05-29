@@ -1,18 +1,70 @@
-## Getting Started
+# 🧩 Maze Solver in Java (DFS Algorithm)
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+This is a simple Java implementation of a **Depth-First Search (DFS)** algorithm to determine whether a maze is solvable from a given start point to an end point.
 
-## Folder Structure
+## 📌 Problem Statement
 
-The workspace contains two folders by default, where:
+Given a 2D grid (maze) consisting of:
+- `S` – Start point
+- `E` – End point
+- `.` – Passable path
+- `#` – Wall (impassable)
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+Determine whether a path exists from `S` to `E`.
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+---
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+## 🚀 How It Works
 
-## Dependency Management
+The program uses a **stack-based DFS algorithm** to traverse the maze. At each step, it:
+1. Checks the current cell.
+2. Marks it as visited.
+3. Adds its valid (non-wall, in-bounds) neighbors to the stack.
+4. Repeats until it either finds the exit (`E`) or exhausts all possibilities.
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+---
+
+## 🧠 Core Algorithm
+
+- Uses a `Stack<int[]>` to implement DFS traversal.
+- Tracks visited cells using a `HashSet<String>`.
+- Valid moves are in four directions: up, down, left, and right.
+- Rejects moves that go out of bounds or hit a wall (`#`).
+
+---
+
+## 📦 Code Structure
+
+- `solveMaze(...)`: Main DFS logic to determine if the maze is solvable.
+- `getNeighbors(...)`: Finds valid neighboring cells for DFS traversal.
+- `isSolvableMethod(...)`: Returns "Yes!" or "No!" based on result.
+- `main(...)`: Sample usage with a hardcoded maze.
+
+---
+
+## 🧪 Example Maze
+
+```text
+S . . # #
+. # . . #
+. # # . #
+. . . # .
+# # # . E
+```
+
+---
+
+## ✅ Output
+
+```
+Is the maze solvable: Yes!
+```
+
+## 🛠️▶️ How to Run
+
+```bash
+java src/App.java
+```
+
+## 👨‍💻 Author
+Zayniev Sanjar in December, 2023. 
